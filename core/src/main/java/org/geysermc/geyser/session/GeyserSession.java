@@ -1022,6 +1022,9 @@ public class GeyserSession implements GeyserConnection, GeyserCommandSource {
                     // Server is offline, probably
                     disconnectMessage = GeyserLocale.getPlayerLocaleString("geyser.network.remote.server_offline", locale());
                 } else {
+                    if (cause instanceof Exception){
+                        ((Exception)cause).printStackTrace();
+                    }
                     disconnectMessage = MessageTranslator.convertMessage(event.getReason());
                 }
 
